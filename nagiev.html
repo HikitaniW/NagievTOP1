@@ -1,0 +1,1284 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Дмитрий Нагиев | Биография, фотографии и погода</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #e6b84c;
+    --black: #08090d;
+    --card: #15171e;
+    --text: #ffffff;
+    --muted: #a5a7b0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    min-height: 100vh;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.45)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Dmitry_Nagiyev.jpg")
+        center/cover no-repeat;
+
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background: rgba(0,0,0,.5);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 100px);
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #ddd;
+    font-size: 20px;
+    max-width: 600px;
+}
+
+.subtitle {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ffd66f;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+.section-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: var(--gold);
+}
+
+.section-description {
+    color: var(--muted);
+    margin-bottom: 35px;
+    max-width: 850px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about-text p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #282a33;
+    padding: 25px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.card h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.timeline {
+    border-left: 2px solid var(--gold);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -37px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.timeline-item h3 {
+    color: var(--gold);
+}
+
+.timeline-item p {
+    color: var(--muted);
+}
+
+/* ФОТОГАЛЕРЕЯ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: .4s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item p {
+    padding: 12px;
+    color: var(--muted);
+}
+
+/* ПОГОДА */
+
+.weather-section {
+    background: #101117;
+}
+
+.weather-search {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.weather-search input {
+    flex: 1;
+    min-width: 220px;
+    padding: 15px;
+    background: var(--card);
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+}
+
+.weather-search button {
+    margin: 0;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.weather-card {
+    background: var(--card);
+    border: 1px solid #292b35;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+}
+
+.weather-card h3 {
+    font-size: 22px;
+}
+
+.weather-icon {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+.temperature {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.weather-card p {
+    color: var(--muted);
+}
+
+.weather-status {
+    color: var(--muted);
+    margin: 20px 0;
+}
+
+footer {
+    padding: 35px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #292b35;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 50px 7%;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ГЛАВНАЯ -->
+
+<header id="home">
+
+<nav>
+    <div class="logo">NAGIEV<span>.</span></div>
+
+    <ul>
+        <li><a href="#about">Биография</a></li>
+        <li><a href="#career">Карьера</a></li>
+        <li><a href="#gallery">Фотографии</a></li>
+        <li><a href="#weather">Погода</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+
+        <div class="subtitle">
+            Актёр • Телеведущий • Шоумен
+        </div>
+
+        <h1>
+            ДМИТРИЙ<br>
+            <span>НАГИЕВ</span>
+        </h1>
+
+        <p>
+            Один из самых узнаваемых артистов российского
+            телевидения и кино. Харизма, юмор, талант
+            и неповторимый стиль.
+        </p>
+
+        <a href="#about" class="btn">
+            Узнать больше
+        </a>
+
+    </div>
+</div>
+
+</header>
+
+<!-- БИОГРАФИЯ -->
+
+<section id="about">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Биография <span>Дмитрия Нагиева</span>
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="about-image">
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Dmitry_Nagiyev.jpg"
+                alt="Дмитрий Нагиев"
+                onerror="this.src='https://placehold.co/600x700/15171e/e6b84c?text=Dmitry+Nagiyev'"
+            >
+        </div>
+
+        <div class="about-text">
+
+            <p>
+                Дмитрий Владимирович Нагиев — российский
+                актёр театра и кино, телеведущий, шоумен
+                и радиоведущий.
+            </p>
+
+            <p>
+                Родился 4 апреля 1967 года в Ленинграде,
+                ныне Санкт-Петербурге.
+            </p>
+
+            <p>
+                С детства занимался спортом. В юности
+                увлекался самбо и дзюдо, добивался
+                спортивных успехов.
+            </p>
+
+            <p>
+                После окончания школы поступил в
+                Ленинградский электротехнический институт.
+                Позже получил актёрское образование
+                в Ленинградском государственном институте
+                театра, музыки и кинематографии.
+            </p>
+
+            <p>
+                Широкую популярность получил благодаря
+                работе на радио, телевидении и участию
+                в известных российских фильмах и сериалах.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="info-cards">
+
+        <div class="card">
+            <h3>Дата рождения</h3>
+            <p>4 апреля 1967 года</p>
+        </div>
+
+        <div class="card">
+            <h3>Место рождения</h3>
+            <p>Ленинград, СССР</p>
+        </div>
+
+        <div class="card">
+            <h3>Профессия</h3>
+            <p>Актёр, телеведущий, шоумен</p>
+        </div>
+
+        <div class="card">
+            <h3>Образование</h3>
+            <p>ЛГИТМиК</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- КАРЬЕРА -->
+
+<section id="career">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Творческий <span>путь</span>
+    </h2>
+
+    <p class="section-description">
+        Основные этапы профессиональной деятельности
+        Дмитрия Нагиева.
+    </p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>1990-е годы</h3>
+            <p>
+                Начало работы на радио. Развитие карьеры
+                ведущего и участие в телевизионных проектах.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>2000-е годы</h3>
+            <p>
+                Работа в развлекательных программах,
+                развитие актёрской карьеры и появление
+                в кино.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>2010-е годы</h3>
+            <p>
+                Большая популярность благодаря сериалам
+                «Кухня» и «Физрук», а также участию
+                в различных телевизионных шоу.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Современный период</h3>
+            <p>
+                Продолжение работы в кино, телевидении,
+                рекламных проектах и развлекательных шоу.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="info-cards">
+
+        <div class="card">
+            <h3>Кухня</h3>
+            <p>
+                Роль Виктора Баринова —
+                знаменитого шеф-повара ресторана.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Физрук</h3>
+            <p>
+                Главная роль Фомы в популярном
+                комедийном сериале.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Ёлки</h3>
+            <p>
+                Участие в популярной российской
+                комедийной кинофраншизе.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Голос</h3>
+            <p>
+                Работа в качестве ведущего
+                музыкального телевизионного шоу.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ФОТОГАЛЕРЕЯ -->
+
+<section id="gallery">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Фотогалерея <span>Нагиева</span>
+    </h2>
+
+    <p class="section-description">
+        Фотографии Дмитрия Нагиева.
+        Изображения загружаются автоматически
+        из Wikimedia Commons.
+    </p>
+
+    <div id="galleryStatus" class="weather-status">
+        Загрузка фотографий...
+    </div>
+
+    <div class="gallery" id="galleryGrid"></div>
+
+</div>
+
+</section>
+
+<!-- ПОГОДА -->
+
+<section id="weather" class="weather-section">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Погода <span>Узбекистана</span>
+    </h2>
+
+    <p class="section-description">
+        Актуальная погода в городах Узбекистана.
+        Используется бесплатный API Open-Meteo.
+    </p>
+
+    <div class="weather-search">
+
+        <input
+            type="text"
+            id="citySearch"
+            placeholder="Введите название города..."
+        >
+
+        <button class="btn" onclick="searchCity()">
+            Найти город
+        </button>
+
+        <button class="btn" onclick="loadAllWeather()">
+            Обновить погоду
+        </button>
+
+    </div>
+
+    <div id="weatherStatus" class="weather-status">
+        Загружаем погоду...
+    </div>
+
+    <div class="weather-grid" id="weatherGrid"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+    <p>
+        Дмитрий Нагиев — биография, карьера,
+        фотографии и погода Узбекистана.
+    </p>
+
+    <p>
+        Фан-сайт. Не является официальным сайтом артиста.
+    </p>
+
+</footer>
+
+<script>
+
+// =====================================
+// ФОТОГАЛЕРЕЯ
+// =====================================
+
+async function loadGallery() {
+
+    const gallery = document.getElementById("galleryGrid");
+    const status = document.getElementById("galleryStatus");
+
+    try {
+
+        const url =
+            "https://commons.wikimedia.org/w/api.php" +
+            "?action=query" +
+            "&generator=search" +
+            "&gsrsearch=" + encodeURIComponent("Dmitry Nagiyev") +
+            "&gsrnamespace=6" +
+            "&gsrlimit=30" +
+            "&prop=imageinfo" +
+            "&iiprop=url" +
+            "&iiurlwidth=700" +
+            "&format=json" +
+            "&origin=*";
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Ошибка загрузки фотографий");
+        }
+
+        const data = await response.json();
+
+        const pages = Object.values(
+            data.query?.pages || {}
+        );
+
+        gallery.innerHTML = "";
+
+        pages.forEach((page) => {
+
+            const imageInfo = page.imageinfo?.[0];
+
+            if (!imageInfo || !imageInfo.thumburl) {
+                return;
+            }
+
+            const item = document.createElement("div");
+
+            item.className = "gallery-item";
+
+            const image = document.createElement("img");
+
+            image.src = imageInfo.thumburl;
+
+            image.alt = "Дмитрий Нагиев";
+
+            image.loading = "lazy";
+
+            image.onerror = function() {
+                item.style.display = "none";
+            };
+
+            const caption = document.createElement("p");
+
+            caption.textContent = page.title
+                .replace("File:", "")
+                .replaceAll("_", " ");
+
+            item.appendChild(image);
+
+            item.appendChild(caption);
+
+            gallery.appendChild(item);
+
+        });
+
+        status.textContent =
+            "Фотографии загружены: " + pages.length;
+
+    } catch (error) {
+
+        status.textContent =
+            "Не удалось загрузить фотографии. Проверьте интернет.";
+
+    }
+
+}
+
+
+// =====================================
+// ГОРОДА УЗБЕКИСТАНА
+// =====================================
+
+const cities = [
+
+    {
+        name: "Ташкент",
+        lat: 41.2995,
+        lon: 69.2401
+    },
+
+    {
+        name: "Самарканд",
+        lat: 39.6542,
+        lon: 66.9597
+    },
+
+    {
+        name: "Бухара",
+        lat: 39.7747,
+        lon: 64.4286
+    },
+
+    {
+        name: "Андижан",
+        lat: 40.7821,
+        lon: 72.3442
+    },
+
+    {
+        name: "Наманган",
+        lat: 41.0011,
+        lon: 71.6726
+    },
+
+    {
+        name: "Фергана",
+        lat: 40.3864,
+        lon: 71.7864
+    },
+
+    {
+        name: "Коканд",
+        lat: 40.5286,
+        lon: 70.9425
+    },
+
+    {
+        name: "Маргилан",
+        lat: 40.4724,
+        lon: 71.7246
+    },
+
+    {
+        name: "Нукус",
+        lat: 42.4619,
+        lon: 59.6166
+    },
+
+    {
+        name: "Ургенч",
+        lat: 41.5500,
+        lon: 60.6333
+    },
+
+    {
+        name: "Хива",
+        lat: 41.3783,
+        lon: 60.3639
+    },
+
+    {
+        name: "Карши",
+        lat: 38.8606,
+        lon: 65.7890
+    },
+
+    {
+        name: "Термез",
+        lat: 37.2242,
+        lon: 67.2783
+    },
+
+    {
+        name: "Джизак",
+        lat: 40.1158,
+        lon: 67.8422
+    },
+
+    {
+        name: "Гулистан",
+        lat: 40.4897,
+        lon: 68.7842
+    },
+
+    {
+        name: "Навои",
+        lat: 40.0844,
+        lon: 65.3792
+    },
+
+    {
+        name: "Зарафшан",
+        lat: 41.5646,
+        lon: 64.2025
+    },
+
+    {
+        name: "Ангрен",
+        lat: 41.0167,
+        lon: 70.1436
+    },
+
+    {
+        name: "Алмалык",
+        lat: 40.8447,
+        lon: 69.5983
+    },
+
+    {
+        name: "Чирчик",
+        lat: 41.4689,
+        lon: 69.5822
+    },
+
+    {
+        name: "Бекабад",
+        lat: 40.2208,
+        lon: 69.2697
+    },
+
+    {
+        name: "Каттакурган",
+        lat: 39.8989,
+        lon: 66.2561
+    },
+
+    {
+        name: "Шахрисабз",
+        lat: 39.0578,
+        lon: 66.8342
+    },
+
+    {
+        name: "Денау",
+        lat: 38.2770,
+        lon: 67.8989
+    },
+
+    {
+        name: "Чуст",
+        lat: 41.0013,
+        lon: 71.2379
+    },
+
+    {
+        name: "Риштан",
+        lat: 40.3567,
+        lon: 71.2847
+    }
+
+];
+
+
+// =====================================
+// ПОГОДА
+// =====================================
+
+const weatherGrid =
+    document.getElementById("weatherGrid");
+
+const weatherStatus =
+    document.getElementById("weatherStatus");
+
+let weatherData = [];
+
+
+// Описание погоды
+
+const weatherDescriptions = {
+
+    0: "Ясно",
+
+    1: "Преимущественно ясно",
+
+    2: "Переменная облачность",
+
+    3: "Пасмурно",
+
+    45: "Туман",
+
+    48: "Изморозь",
+
+    51: "Лёгкая морось",
+
+    53: "Морось",
+
+    55: "Сильная морось",
+
+    61: "Небольшой дождь",
+
+    63: "Дождь",
+
+    65: "Сильный дождь",
+
+    71: "Небольшой снег",
+
+    73: "Снег",
+
+    75: "Сильный снег",
+
+    80: "Ливень",
+
+    81: "Ливень",
+
+    82: "Сильный ливень",
+
+    95: "Гроза",
+
+    96: "Гроза с градом",
+
+    99: "Сильная гроза"
+
+};
+
+
+// Иконки погоды
+
+function getWeatherIcon(code) {
+
+    if (code === 0) {
+        return "☀️";
+    }
+
+    if (code === 1 || code === 2) {
+        return "🌤️";
+    }
+
+    if (code === 3 || code === 45 || code === 48) {
+        return "☁️";
+    }
+
+    if (code >= 51 && code <= 67) {
+        return "🌧️";
+    }
+
+    if (code >= 71 && code <= 77) {
+        return "🌨️";
+    }
+
+    if (code >= 80 && code <= 82) {
+        return "🌧️";
+    }
+
+    if (code >= 95) {
+        return "⛈️";
+    }
+
+    return "🌡️";
+
+}
+
+
+// Получение погоды одного города
+
+async function getWeather(city) {
+
+    const url =
+        `https://api.open-meteo.com/v1/forecast` +
+        `?latitude=${city.lat}` +
+        `&longitude=${city.lon}` +
+        `&current=temperature_2m` +
+        `,relative_humidity_2m` +
+        `,apparent_temperature` +
+        `,wind_speed_10m` +
+        `,weather_code` +
+        `&timezone=auto`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error("Ошибка API");
+    }
+
+    const data = await response.json();
+
+    return {
+
+        name: city.name,
+
+        current: data.current
+
+    };
+
+}
+
+
+// Загрузка погоды всех городов
+
+async function loadAllWeather() {
+
+    weatherStatus.textContent =
+        "Загружаем погодные данные...";
+
+    weatherGrid.innerHTML = "";
+
+    try {
+
+        const results = await Promise.all(
+
+            cities.map(city => getWeather(city))
+
+        );
+
+        weatherData = results;
+
+        renderWeather(weatherData);
+
+        weatherStatus.textContent =
+            "Погода обновлена: " +
+            new Date().toLocaleTimeString("ru-RU");
+
+    } catch (error) {
+
+        weatherStatus.textContent =
+            "Ошибка получения погоды. Проверьте интернет.";
+
+    }
+
+}
+
+
+// Отображение карточек погоды
+
+function renderWeather(data) {
+
+    weatherGrid.innerHTML = "";
+
+    data.forEach(city => {
+
+        const current = city.current;
+
+        const temperature =
+            Math.round(current.temperature_2m);
+
+        const feelsLike =
+            Math.round(current.apparent_temperature);
+
+        const humidity =
+            current.relative_humidity_2m;
+
+        const wind =
+            Math.round(current.wind_speed_10m);
+
+        const code =
+            current.weather_code;
+
+        const description =
+            weatherDescriptions[code] || "Неизвестно";
+
+        const icon =
+            getWeatherIcon(code);
+
+        const card = document.createElement("div");
+
+        card.className = "weather-card";
+
+        card.innerHTML = `
+
+            <h3>${city.name}</h3>
+
+            <div class="weather-icon">
+                ${icon}
+            </div>
+
+            <div class="temperature">
+                ${temperature}°C
+            </div>
+
+            <p>
+                ${description}
+            </p>
+
+            <p>
+                Ощущается как: ${feelsLike}°C
+            </p>
+
+            <p>
+                Влажность: ${humidity}%
+            </p>
+
+            <p>
+                Ветер: ${wind} км/ч
+            </p>
+
+        `;
+
+        weatherGrid.appendChild(card);
+
+    });
+
+}
+
+
+// =====================================
+// ПОИСК ГОРОДА
+// =====================================
+
+async function searchCity() {
+
+    const input =
+        document.getElementById("citySearch");
+
+    const query =
+        input.value.trim();
+
+    if (!query) {
+
+        alert("Введите название города");
+
+        return;
+
+    }
+
+    weatherStatus.textContent =
+        "Ищем город...";
+
+    try {
+
+        // Геокодирование через Open-Meteo
+
+        const url =
+            "https://geocoding-api.open-meteo.com/v1/search" +
+            "?name=" + encodeURIComponent(query) +
+            "&count=10" +
+            "&language=ru" +
+            "&format=json";
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Ошибка поиска");
+        }
+
+        const data = await response.json();
+
+        const results = data.results || [];
+
+        // Оставляем города Узбекистана
+
+        const uzbekistanCities = results.filter(city =>
+
+            city.country_code === "UZ"
+
+        );
+
+        if (uzbekistanCities.length === 0) {
+
+            weatherStatus.textContent =
+                "Город Узбекистана не найден.";
+
+            return;
+
+        }
+
+        const selectedCity =
+            uzbekistanCities[0];
+
+        const cityWeather = await getWeather({
+
+            name: selectedCity.name,
+
+            lat: selectedCity.latitude,
+
+            lon: selectedCity.longitude
+
+        });
+
+        renderWeather([cityWeather]);
+
+        weatherStatus.textContent =
+            "Погода для города: " +
+            selectedCity.name;
+
+    } catch (error) {
+
+        weatherStatus.textContent =
+            "Не удалось найти город. Попробуйте снова.";
+
+    }
+
+}
+
+
+// Поиск по нажатию Enter
+
+document
+    .getElementById("citySearch")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            searchCity();
+
+        }
+
+    });
+
+
+// =====================================
+// ЗАПУСК
+// =====================================
+
+loadGallery();
+
+loadAllWeather();
+
+</script>
+
+</body>
+</html>
